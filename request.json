@@ -48,11 +48,42 @@
          "imageType": "PDF",
          "labelStockType": "PAPER_85X11_TOP_HALF_LABEL"
       },
+      "shippingDocumentSpecification": {
+         "op900Detail": {
+            "customerImageUsages": [
+               {
+                  "id": "IMAGE_1",
+                  "type": "LETTER_HEAD",
+                  "providedImageType": "LETTER_HEAD"
+               },
+               {
+                  "id": "IMAGE_2",
+                  "type": "SIGNATURE",
+                  "providedImageType": "SIGNATURE"
+               }
+            ]
+         },
+         "shippingDocumentTypes": [
+            "OP_900"
+         ]
+      },
       "requestedPackageLineItems": [
          {
             "weight": {
                "value": 10,
                "units": "LB"
+            },
+            "packageSpecialServices": {
+               "specialServiceTypes": [
+                  "DANGEROUS_GOODS"
+               ],
+               "dangerousGoodsDetail": {
+                  "regulation": "DOT",
+                  "options": [
+                     "HAZARDOUS_MATERIALS",
+                     "LIMITED_QUANTITIES_COMMODITIES"
+                  ]
+               }
             }
          }
       ]
