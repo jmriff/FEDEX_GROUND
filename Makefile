@@ -9,3 +9,4 @@ shared :
 
 clean:
 	rm -f response.json *gif *pdf *jpg *zpl *png
+	echo "Spick and Span!"
