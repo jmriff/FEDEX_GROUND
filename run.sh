@@ -19,8 +19,8 @@ clear
 
 ##
 ##  Generate Token
-echo "Generate OAuth 2.0 Bearer Token"
-echo -e -n "${RED}API:   Generate Token...${NC}"
+echo "First call :: Generate OAuth 2.0 Bearer Token"
+echo -e "${RED}API:  API Authorization${NC}"
 
 responseToken=`curl --silent -X POST "${ENDPOINT_TOKEN}" \
    -H "Content-Type: application/x-www-form-urlencoded" \
@@ -32,8 +32,8 @@ bearer_token=`echo $responseToken | jq -r '.access_token'`  #  Store access toke
 
 ##
 ##  Create Shipping Label
-echo -e "\n\nCreate shipping label for shipment."
-echo -e -n "${RED}API:  Shipping...${NC}"
+echo -e "\n\nSecond call :: Create shipping label for shipment."
+echo -e "${RED}API:  Ship${NC}"
 
 curl --compressed --output response.json \
    -H "Authorization: Bearer ${bearer_token}" \
@@ -43,4 +43,6 @@ curl --compressed --output response.json \
    -d @request.json \
    "${ENDPOINT_SHIPPING}"
 
+echo -e "\n\nHit <enter> to see the RESPONSE from FedEx..."
+read a
 cat response.json | jq | less
